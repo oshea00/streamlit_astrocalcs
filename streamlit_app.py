@@ -3,9 +3,9 @@ import astrocalcs
 from datetime import date, time
 import re
 
-def getInt(str):
+def getInt(s):
   i = 0
-  match = re.search("\-{0,1}[\d]+",str)
+  match = re.search("\-{0,1}[\d]+",s)
   if match:
     i = int(match[0])
   return i

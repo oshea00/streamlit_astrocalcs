@@ -1,5 +1,6 @@
 
 from math import modf
+import re
 
 def easter_date(year):
     _, a = divmod(year,19)
@@ -50,6 +51,53 @@ def julianDate(y,m,d,hh,mm,ss):
 def modifiedJulianDate(y,m,d,hh,mm,ss):
     return round(julianDate(y,m,d,hh,mm,ss) - 2_400_000.5,4)
 
+def reduceWithin(v,r):
+    if v >= 0 and v <= r:
+        return v
+    
+    if v > r:
+        while v > r:
+            v -= r
+    else:
+        while v < 0:
+            v += r
+    return v
+
+def gmtToGST(y,m,d,hh,mm,ss):
+    jd = julianDate(y,m,d,0,0,0)
+    s = jd - 2_451_545.0
+    t = s / 36_525.0
+    t0 = 6.697_374_558 + (t * 2_400.051_336) + (t**2 * 0.000_025_862)
+    t0Reduced = reduceWithin(t0,24)
+    utDecimalHours = hmsToHours(hh,mm,ss)
+    utByConstant = utDecimalHours * 1.002_737_909
+    gst = reduceWithin(utByConstant + t0Reduced,24)
+    gstHms = hoursToHMS(round(gst,6))
+    return gstHms
+
+def getTime(s):
+  hour = 0
+  minute = 0
+  second = 0
+  valid = False
+  try:
+    match = re.search("^[0-9]+\:[0-9]+\:[0-9]+\.?[0-9]*",s)
+    if match:
+        p = s.split(":")
+        hour = int(p[0])
+        minute = int(p[1])
+        second = float(p[2])
+        valid = True
+    return hour, minute, second, valid
+  except:
+    return 0, 0, 0, False
+
+def getInt(s):
+  i = 0
+  match = re.search("\-{0,1}[\d]+",s)
+  if match:
+    i = int(match[0])
+  return i
 
 
 

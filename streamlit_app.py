@@ -52,6 +52,13 @@ with julian:
     st.warning('Year cannot be before 4713 BCE')
     st.stop()
 
+  if intMonth < 1 or intMonth > 13:
+    st.warning('Month must be 1-12')
+    st.stop()
+
+  if intDay < 1 or intMonth > 31:
+    st.warning('Day must be 1-31')
+    st.stop()
 
   julian = astrocalcs.julianDate(intYear,intMonth,intDay,gtime.hour,gtime.minute,gtime.second)
   mjd = astrocalcs.modifiedJulianDate(intYear,intMonth,intDay,gtime.hour,gtime.minute,gtime.second)

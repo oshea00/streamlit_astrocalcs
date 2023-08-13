@@ -35,7 +35,7 @@ with julian:
   with c3:
     gday = st.text_input("Day",str(date.today().day))
   isBce = st.checkbox("Is BCE")
-  gtime = st.time_input("Time UTC",value=time(0,0),step=300)
+  gtime = st.time_input("Time UTC",value=time(0,0),step=900)
 
   intYear = getInt(gyear)
   intMonth = getInt(gmon)

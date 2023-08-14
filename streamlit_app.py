@@ -124,6 +124,6 @@ def checkKey(dic, key):
     else:
         print("Not present")
 
-st.write(f"key exists {checkKey(st.secrets,'OPENAI_API_KEY')}")
+st.write(f"key exists {checkKey(st.secrets,'OPENAI-API-KEY')}")
 
 

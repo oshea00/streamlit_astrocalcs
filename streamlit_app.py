@@ -70,10 +70,7 @@ with julian:
 
 with timeref:
   
-  gmtOption = 'Greenwich mean time (GMT) to Greenwich mean sidereal time (GST)'
-
-  option = st.selectbox('Conversions',
-                        (gmtOption))
+  st.header('Greenwich mean time (GMT) to Greenwich mean sidereal time (GST)')
 
   c1, c2, c3 = st.columns(3,gap="small")
   with c1:

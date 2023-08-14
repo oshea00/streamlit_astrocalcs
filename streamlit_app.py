@@ -1,6 +1,10 @@
 import streamlit as st
 import astrocalcs
 from datetime import date, time, datetime
+import openai
+
+OPENAI = "OPENAI"
+openai.api_key = st.secrets[OPENAI]
 
 st.title('Astrocalcs')
 
@@ -117,12 +121,10 @@ with timeref:
     st.warning('Invalid time')
 
 
-def checkKey(dic, key):
-    if key in dic.keys():
-        return "YES"
-    else:
-        return "NO"
+response = openai.Completion.create(
+  engine="text-davinci-003",  # change this to the engine you're using
+  prompt="What state did Mark Twain go in his book Roughing It to prospect for gold? '{}'",
+  max_tokens=600
+)
 
-keyname = "OPENAI"
-st.write(f"key exists {checkKey(st.secrets,keyname)}")
-
+st.write(response.choices[0].text.strip())

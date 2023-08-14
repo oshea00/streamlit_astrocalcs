@@ -79,8 +79,7 @@ with timeref:
     gmon = st.text_input("Month",str(date.today().month),key="t2")
   with c3:
     gday = st.text_input("Day",str(date.today().day),key="t3")
-  isBce = st.checkbox("Is BCE",key="t4")
-
+  
   timeLabel = "GMT Time"
   strTime = st.text_input(timeLabel,placeholder="Enter time in HH:MM:SS.s",key=timeLabel)
 

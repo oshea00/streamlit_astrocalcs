@@ -8,7 +8,7 @@ openai.api_key = st.secrets[OPENAI]
 
 st.title('Astrocalcs')
 
-easter, julian, timeref = st.tabs(["Easter Sunday","Julian Dates","Time"])
+easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","Time","Astronomy Querys"])
 
 with easter:
   year = st.number_input("Year",1583)
@@ -120,11 +120,11 @@ with timeref:
   else:
     st.warning('Invalid time')
 
-
-response = openai.Completion.create(
-  engine="text-davinci-003",  # change this to the engine you're using
-  prompt="What state did Mark Twain go in his book Roughing It to prospect for gold? '{}'",
-  max_tokens=600
-)
-
-st.write(response.choices[0].text.strip())
+with astroquery:
+  question = st.text_input("Question")
+  response = openai.Completion.create(
+    engine="text-davinci-003",
+    prompt=question+" '{}'",
+    max_tokens=600
+  )
+  st.write(response.choices[0].text.strip())

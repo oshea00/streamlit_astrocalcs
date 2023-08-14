@@ -11,7 +11,7 @@ st.title('Astrocalcs')
 easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","Time","Astronomy Questions"])
 
 with easter:
-  year = st.text_input("Year",placeholder="1583")
+  year = st.text_input("Year",placeholder="Enter a year >= 1583")
   if (len(year)>0):
     if int(year)<1583:
       st.warning("Only years >= 1583 will work!")

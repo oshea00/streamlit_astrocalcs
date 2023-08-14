@@ -8,7 +8,7 @@ openai.api_key = st.secrets[OPENAI]
 
 st.title('Astrocalcs')
 
-easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","Time","Astronomy Querys"])
+easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","Time","Astronomy Questions"])
 
 with easter:
   year = st.number_input("Year",1583)

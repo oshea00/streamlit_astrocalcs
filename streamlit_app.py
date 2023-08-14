@@ -11,16 +11,17 @@ st.title('Astrocalcs')
 easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","Time","Astronomy Questions"])
 
 with easter:
-  year = st.number_input("Year",2023)
-  m, d = astrocalcs.easter_date(year)
-  month = "April" if m == 4 else "March"
-  st.write(f"Easter Sunday {month} {d}, {year}")
+  year = st.text_input("Year",placeholder="1583")
+  if (len(year)>0):
+    m, d = astrocalcs.easter_date(int(year))
+    month = "April" if m == 4 else "March"
+    st.write(f"Easter Sunday {month} {d}, {year}")
   with st.expander("See explanation"):
     st.write("Easter day, the date to which such movable feasts as Whitsun and Trinity Sunday "
-             "are fixed, is usually the first Sunday after the fourteenth day after the first new Moon after March 21st. "
-             "The calculation here devised in 1876 comes from Butcher's Ecclesiastical Calender, "
-             "and is valid for all years in the Gregorian calendar from 1583 onwards."
-             )
+            "are fixed, is usually the first Sunday after the fourteenth day after the first new Moon after March 21st. "
+            "The calculation here devised in 1876 comes from Butcher's Ecclesiastical Calender, "
+            "and is valid for all years in the Gregorian calendar from 1583 onwards."
+            )
 
 with julian:
   c1, c2, c3 = st.columns(3,gap="small")

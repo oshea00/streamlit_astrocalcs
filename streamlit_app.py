@@ -121,10 +121,11 @@ with timeref:
     st.warning('Invalid time')
 
 with astroquery:
-  question = st.text_input("Question")
-  response = openai.Completion.create(
-    engine="text-davinci-003",
-    prompt=question+" '{}'",
-    max_tokens=600
-  )
-  st.write(response.choices[0].text.strip())
+  question = st.text_input("Question",placeholder="Type a question about astronomy")
+  if len(question) > 0:
+    response = openai.Completion.create(
+      engine="text-davinci-003",
+      prompt=question+" '{}'",
+      max_tokens=600
+    )
+    st.write(response.choices[0].text.strip())

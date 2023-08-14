@@ -71,11 +71,9 @@ with julian:
 with timeref:
   
   gmtOption = 'Greenwich mean time (GMT) to Greenwich mean sidereal time (GST)'
-  localOption = 'Local time to Local mean sidereal time (LST)'
 
   option = st.selectbox('Conversions',
-                        (gmtOption,
-                         localOption))
+                        (gmtOption))
 
   c1, c2, c3 = st.columns(3,gap="small")
   with c1:

@@ -118,6 +118,13 @@ with timeref:
     st.warning('Invalid time')
 
 
-st.write("key exists",st.secrets["OPENAI_API_KEY"] != None)
+def checkKey(dic, key):
+    if key in dic.keys():
+        print("Present, ", end =" ")
+        print("value =", dic[key])
+    else:
+        print("Not present")
+
+st.write(f"key exists {checkKey(st.secrets,'OPENAI_API_KEY')}")
 
 

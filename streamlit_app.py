@@ -120,7 +120,7 @@ with timeref:
 
 def checkKey(dic, key):
     if key in dic.keys():
-        print("Present, ", end =" ")
+        print("Present")
     else:
         print("Not present")
 

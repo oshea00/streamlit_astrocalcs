@@ -81,12 +81,8 @@ with timeref:
     gday = st.text_input("Day",str(date.today().day),key="t3")
   isBce = st.checkbox("Is BCE",key="t4")
 
-  timeLabel = "GMT Time" if option == gmtOption else "Local Time"
-  if option == gmtOption:
-      strTime = st.text_input(timeLabel,placeholder="HH:MM:SS.s",key=timeLabel)
-  else:
-      strTime = st.text_input(timeLabel,placeholder="HH:MM:SS.s",key=timeLabel,
-                              value=f"{datetime.now().hour:02}:{datetime.now().minute:02}:{datetime.now().second:02}")
+  timeLabel = "GMT Time"
+  strTime = st.text_input(timeLabel,placeholder="HH:MM:SS.s",key=timeLabel)
 
   intYear = astrocalcs.getInt(gyear)
   intMonth = astrocalcs.getInt(gmon)
@@ -114,11 +110,8 @@ with timeref:
   hour, minute, second, isValid = astrocalcs.getTime(strTime)
 
   if isValid:
-    if option == gmtOption:
-      hour, minute, second = astrocalcs.gmtToGST(intYear,intMonth,intDay,hour,minute,second)
-      st.write(f"GST: {int(hour):02}\:{int(minute):02}\:{round(second,2):02}")
-    else:
-      st.write(f"LST: In-Work")
+    hour, minute, second = astrocalcs.gmtToGST(intYear,intMonth,intDay,hour,minute,second)
+    st.write(f"GST: {int(hour):02}\:{int(minute):02}\:{round(second,2):02}")
   else:
     st.warning('Invalid time')
 

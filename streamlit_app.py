@@ -132,7 +132,7 @@ with astroquery:
   if len(question) > 0:
     response = openai.Completion.create(
       engine="text-davinci-003",
-      prompt=question+" '{}'",
+      prompt=question+"in markdown"+" '{}'",
       max_tokens=1200
     )
     st.write(response.choices[0].text.strip())

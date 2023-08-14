@@ -126,6 +126,6 @@ with astroquery:
     response = openai.Completion.create(
       engine="text-davinci-003",
       prompt=question+" '{}'",
-      max_tokens=600
+      max_tokens=1200
     )
     st.write(response.choices[0].text.strip())

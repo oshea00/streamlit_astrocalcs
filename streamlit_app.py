@@ -112,8 +112,6 @@ with timeref:
   if isValid:
     hour, minute, second = astrocalcs.gmtToGST(intYear,intMonth,intDay,hour,minute,second)
     st.write(f"GST: {int(hour):02}\:{int(minute):02}\:{round(second,2):02}")
-  else:
-    st.warning('Invalid time')
 
 with astroquery:
   question = st.text_input("Question",placeholder="Type a question about astronomy")

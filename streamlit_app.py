@@ -120,9 +120,9 @@ with timeref:
 
 def checkKey(dic, key):
     if key in dic.keys():
-        return "Present"
+        return "YES"
     else:
-        return "Not present"
+        return "NO"
 
 st.write(f"key exists {checkKey(st.secrets,'OPENAI-API-KEY')}")
 

@@ -1,7 +1,6 @@
 import streamlit as st
 import astrocalcs
 from datetime import date, time, datetime
-import re
 
 st.title('Astrocalcs')
 
@@ -124,6 +123,7 @@ def checkKey(dic, key):
     else:
         return "NO"
 
-st.write(f"key exists {checkKey(st.secrets,'OPENAI')}")
-
+keyname = "OPENAI"
+st.write(f"Looking for {keyname}")
+st.write(f"key exists {checkKey(st.secrets,keyname)}"
 

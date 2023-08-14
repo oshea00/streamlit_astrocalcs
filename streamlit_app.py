@@ -125,5 +125,5 @@ def checkKey(dic, key):
 
 keyname = "OPENAI"
 st.write(f"Looking for {keyname}")
-st.write(f"key exists {checkKey(st.secrets,keyname)}"
+st.write(f"key exists {checkKey(st.secrets,keyname)}")
 

@@ -13,6 +13,9 @@ easter, julian, timeref, astroquery = st.tabs(["Easter Sunday","Julian Dates","T
 with easter:
   year = st.text_input("Year",placeholder="1583")
   if (len(year)>0):
+    if int(year)<1583:
+      st.warning("Only years >= 1583 will work!")
+      st.stop()
     m, d = astrocalcs.easter_date(int(year))
     month = "April" if m == 4 else "March"
     st.write(f"Easter Sunday {month} {d}, {year}")

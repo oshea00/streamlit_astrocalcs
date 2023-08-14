@@ -70,7 +70,7 @@ with julian:
 
 with timeref:
   
-  st.header('Greenwich mean time (GMT) to Greenwich mean sidereal time (GST)')
+  st.subheader('Greenwich mean time (GMT) to Greenwich mean sidereal time (GST)')
 
   c1, c2, c3 = st.columns(3,gap="small")
   with c1:
@@ -82,7 +82,7 @@ with timeref:
   isBce = st.checkbox("Is BCE",key="t4")
 
   timeLabel = "GMT Time"
-  strTime = st.text_input(timeLabel,placeholder="HH:MM:SS.s",key=timeLabel)
+  strTime = st.text_input(timeLabel,placeholder="Enter time in HH:MM:SS.s",key=timeLabel)
 
   intYear = astrocalcs.getInt(gyear)
   intMonth = astrocalcs.getInt(gmon)

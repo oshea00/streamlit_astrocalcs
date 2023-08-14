@@ -118,3 +118,6 @@ with timeref:
     st.warning('Invalid time')
 
 
+st.write("key exists",st.secrets["OPENAI_API_KEY"] != None)
+
+

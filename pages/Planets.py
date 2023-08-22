@@ -8,3 +8,5 @@ st.set_page_config(
 )
 
 st.title(":earth_americas: Planets")
+
+st.markdown("[NASA Exoplanet Archive](https://exoplanetarchive.ipac.caltech.edu/)")

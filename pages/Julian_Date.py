@@ -83,10 +83,8 @@ if convert == choices[1]:
 
     dow = ("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
     print(f"Julian {julianF}")
-    dowA = (julianF + 1.5)/7
-    af, ai = modf(dowA)
+    af, ai = modf((julianF + 1.5)/7)
     print(af)
     day = f"{dow[int(af*7+.5)]}"
-
     st.write(f"{day}, {int(m):02}/{int(dd):02}/{int(yy):04} {int(hh):02}\:{round(mm+(ss/60)):02} UTC {BCE}")
 

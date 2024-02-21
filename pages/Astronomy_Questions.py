@@ -18,7 +18,7 @@ openai.api_key = st.secrets[OPENAI]
 question = st.text_input("Question",placeholder="Type a question about astronomy",label_visibility="hidden")
 if len(question) > 0:
     response = openai.Completion.create(
-        engine="text-davinci-003",
+        engine="gpt-3.5-turbo-instruct",
         prompt=question+"in markdown"+" '{}'",
         max_tokens=1200
     )

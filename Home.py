@@ -13,3 +13,13 @@ st.set_page_config(
 
 st.title(':star2: - Astrocalcs')
 
+introMd = """
+### An Assembly of Astronomical Calculations 
+
+You'll find some useful astronomical calculations here and a place to ask astronomy questions.
+
+Have Fun!
+
+"""
+
+st.markdown(introMd)
